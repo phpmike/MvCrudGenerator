@@ -6,7 +6,7 @@ use Symfony\Component\HttpKernel\Bundle\Bundle;
 
 use Symfony\Component\Console\Application;
 use Sensio\Bundle\GeneratorBundle\Generator\DoctrineCrudGenerator;
-use Symfony\Component\Filesystem\FileSystem;
+use Symfony\Component\Filesystem\Filesystem;
 
 class MvCrudGeneratorBundle extends Bundle
 {

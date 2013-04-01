@@ -1,60 +1,66 @@
 {{ "{% extends '::base.html.twig' %}" }}
 
+{{ "{% trans_default_domain 'mvcrud' %}" }}
+
 {{ "{% block body -%}" }}
-    <h1>{{ entity }} list</h1>
+    <div class="admin-block">
+        <h1>{{ "{{ '%entity% list'|trans({'%entity%':'" ~ entity ~ "'})|capitalize }}" }}</h1>
+        <div class="admin-block-content">
 
-    <table class="records_list">
-        <thead>
-            <tr>
-            {%- for field, metadata in fields %}
+            <table class="records_list">
+                <thead>
+                    <tr>
+                    {%- for field, metadata in fields %}
 
-                <th>{{ field|capitalize }}</th>
+                        <th>{{ "{{ '" ~ entity|lower ~ '.' ~ field ~ "'|trans({},'messages')|capitalize }}" }}</th>
 
-            {%- endfor %}
+                    {%- endfor %}
 
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {{ '{% for entity in entities %}' }}
-            <tr>
+                        <th>{{ "{{ 'actions'|trans|capitalize }}" }}</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {{ '{% for entity in entities %}' }}
+                    <tr class="{{ '{% if loop.index is odd %}odd{% else %}even{% endif %}' }}">
 
-        {%- for field, metadata in fields %}
-            {%- if loop.first and ('show' in actions) %}
+                {%- for field, metadata in fields %}
+                    {%- if loop.first and ('show' in actions) %}
 
-                <td><a href="{{ "{{ path('" ~ route_name_prefix ~ "_show', { 'id': entity.id }) }}" }}">{{ '{{ entity.' ~ field|replace({'_': ''}) ~ ' }}' }}</a></td>
+                        <td><a href="{{ "{{ path('" ~ route_name_prefix ~ "_show', { 'id': entity.id }) }}" }}">{{ '{{ entity.' ~ field|replace({'_': ''}) ~ ' }}' }}</a></td>
 
-            {%- elseif metadata.type in ['date', 'datetime'] %}
+                    {%- elseif metadata.type in ['date', 'datetime'] %}
 
-                <td>{{ '{% if entity.' ~ field|replace({'_': ''}) ~ ' %}{{ entity.' ~ field|replace({'_': ''}) ~ '|date(\'Y-m-d H:i:s\') }}{% endif %}' }}</td>
+                        <td>{{ '{% if entity.' ~ field|replace({'_': ''}) ~ ' %}{{ entity.' ~ field|replace({'_': ''}) ~ '|date(\'Y-m-d H:i:s\') }}{% endif %}' }}</td>
 
-            {%- else %}
+                    {%- else %}
 
-                <td>{{ '{{ entity.' ~ field|replace({'_': ''}) ~ ' }}' }}</td>
+                        <td>{{ '{{ entity.' ~ field|replace({'_': ''}) ~ ' }}' }}</td>
 
-            {%- endif %}
+                    {%- endif %}
 
-            {%- if loop.last %}
+                    {%- if loop.last %}
 
-                <td>
-                    {%- include "views/others/actions.html.twig.twig" %}
-                </td>
+                        <td>
+                            {%- include "views/others/actions.html.twig.twig" %}
+                        </td>
 
-            {%- endif %}
-        {%- endfor %}
+                    {%- endif %}
+                {%- endfor %}
 
-            </tr>
-        {{ '{% endfor %}' }}
-        </tbody>
-    </table>
+                    </tr>
+                {{ '{% endfor %}' }}
+                </tbody>
+            </table>
 
-    {% if 'new' in actions %}
-    <ul>
-        <li>
-            <a href="{{ "{{ path('" ~ route_name_prefix ~ "_new') }}" }}">
-                Create a new entry
-            </a>
-        </li>
-    </ul>
-    {% endif %}
+            {% if 'new' in actions %}
+            <ul>
+                <li>
+                    <a href="{{ "{{ path('" ~ route_name_prefix ~ "_new') }}" }}">
+                        {{ "{{ 'create a new entry'|trans|capitalize }}" }}
+                    </a>
+                </li>
+            </ul>
+            {% endif %}
+        </div>
+    </div>
 {{ "{% endblock %}" }}

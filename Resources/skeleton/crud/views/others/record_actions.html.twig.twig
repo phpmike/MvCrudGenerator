@@ -1,13 +1,14 @@
+
 <ul class="record_actions">
     <li>
         <a href="{{ "{{ path('" ~ route_name_prefix ~ "') }}" }}">
-            Back to the list
+            {{ "{{ 'back to the list'|trans|capitalize }}" }}
         </a>
     </li>
 {% if ('edit' in actions) and (not hide_edit) %}
     <li>
         <a href="{{ "{{ path('" ~ route_name_prefix ~ "_edit', { 'id': entity.id }) }}" }}">
-            Edit
+            {{ "{{ 'edit'|trans|capitalize }}" }}
         </a>
     </li>
 {% endif %}
@@ -16,7 +17,7 @@
         <form action="{{ "{{ path('" ~ route_name_prefix ~ "_delete', { 'id': entity.id }) }}" }}" method="post">
             <input type="hidden" name="_method" value="DELETE" />
             {{ '{{ form_widget(delete_form) }}' }}
-            <button type="submit">Delete</button>
+            <button type="submit">{{ "{{ 'delete'|trans|capitalize }}" }}</button>
         </form>
     </li>
 {% endif %}

@@ -1,32 +1,38 @@
 {{ "{% extends '::base.html.twig' %}" }}
 
+{{ "{% trans_default_domain 'mvcrud' %}" }}
+
 {{ "{% block body -%}" }}
-    <h1>{{ entity }}</h1>
+    <div class="admin-block">
+        <h1>{{ "{{ '%entity% view'|trans({'%entity%':entity})|capitalize }}" }}</h1>
+        <div class="admin-block-content">
 
-    <table class="record_properties">
-        <tbody>
-        {%- for field, metadata in fields %}
+            <table class="record_properties">
+                <tbody>
+                {%- for field, metadata in fields %}
 
-            <tr>
-                <th>{{ field|capitalize }}</th>
+                    <tr>
+                        <th>{{ "{{ '" ~ entity|lower ~ '.' ~ field ~ "'|trans({},'messages')|capitalize }}" }}</th>
 
-            {%- if metadata.type in ['date', 'datetime'] %}
+                    {%- if metadata.type in ['date', 'datetime'] %}
 
-                <td>{{ '{{ entity.' ~ field|replace({'_': ''}) ~ '|date(\'Y-m-d H:i:s\') }}' }}</td>
+                        <td>{{ '{{ entity.' ~ field|replace({'_': ''}) ~ '|date(\'Y-m-d H:i:s\') }}' }}</td>
 
-            {%- else %}
+                    {%- else %}
 
-                <td>{{ '{{ entity.' ~ field|replace({'_': ''}) ~ ' }}' }}</td>
+                        <td>{{ '{{ entity.' ~ field|replace({'_': ''}) ~ ' }}' }}</td>
 
-            {%- endif %}
+                    {%- endif %}
 
-            </tr>
+                    </tr>
 
-        {%- endfor %}
+                {%- endfor %}
 
-        </tbody>
-    </table>
+                </tbody>
+            </table>
 
-    {% set hide_edit, hide_delete = false, false %}
-    {% include 'views/others/record_actions.html.twig.twig' %}
+            {% set hide_edit, hide_delete = false, false %}
+            {% include 'views/others/record_actions.html.twig.twig' %}
+        </div>
+    </div>
 {{ "{% endblock %}" }}

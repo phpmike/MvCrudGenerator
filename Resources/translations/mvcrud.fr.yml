@@ -1,0 +1,9 @@
+show: voir
+edit: modifier
+delete: supprimer
+"create a new entry": "créer un nouvel élément"
+"back to the list": "retour à la liste"
+"%entity% view": "voir %entity%"
+"%entity% list": "liste d'élément \"%entity%\""
+"%entity% edit": "modifier %entity%"
+"%entity% creation": "créer un nouvel élément %entity%"
