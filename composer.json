@@ -1,0 +1,31 @@
+{
+    "name": "mv/mv-crud-generator-bundle",
+    "type": "symfony-bundle",
+    "description": "Symfony2 Doctrine Crud generator Bundle",
+    "keywords": ["crud generator"],
+    "homepage": "https://github.com/phpmike/MvCrudGenerator",
+    "license": "GPL",
+    "authors": [
+        {
+            "name": "Michaël VEROUX",
+            "homepage": "https://github.com/phpmike"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.3",
+        "symfony/symfony": ">=2.2@stable",
+        "sensio/generator-bundle": ">=2.2@stable"
+    },
+    "minimum-stability": "alpha",
+    "extra": {
+        "branch-alias": {
+            "dev-master": "2.2.x-dev"
+        }
+    },
+    "autoload": {
+        "psr-0": {
+            "Mv\\CrudGeneratorBundle": ""
+        }
+    },
+    "target-dir" : "Mv/CrudGeneratorBundle"
+}

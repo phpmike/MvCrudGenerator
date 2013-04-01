@@ -11,3 +11,11 @@ web/bundles/*
 # Configuration files
 app/config/parameters.ini
 app/config/parameters.yml
+/nbproject
+
+# Assets
+/Resources/public/images/*
+!/Resources/public/images/index.php
+
+# Dolphin
+.directory
