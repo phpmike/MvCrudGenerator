@@ -1,8 +1,8 @@
-{{ "{% extends '::base.html.twig' %}" }}
+{{ "{% extends 'MvCrudGeneratorBundle::layout.html.twig' %}" }}
 
 {{ "{% trans_default_domain 'mvcrud' %}" }}
 
-{{ "{% block body -%}" }}
+{{ "{% block content -%}" }}
     <div class="admin-block">
         <h1>{{ "{{ '%entity% edit'|trans({'%entity%':entity})|capitalize }}" }}</h1>
         <div class="admin-block-content">

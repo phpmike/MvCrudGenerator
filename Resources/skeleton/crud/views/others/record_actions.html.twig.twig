@@ -17,7 +17,7 @@
         <form action="{{ "{{ path('" ~ route_name_prefix ~ "_delete', { 'id': entity.id }) }}" }}" method="post">
             <input type="hidden" name="_method" value="DELETE" />
             {{ '{{ form_widget(delete_form) }}' }}
-            <button type="submit">{{ "{{ 'delete'|trans|capitalize }}" }}</button>
+            <button type="submit" class="button-red">{{ "{{ 'delete'|trans|capitalize }}" }}</button>
         </form>
     </li>
 {% endif %}

@@ -1,8 +1,8 @@
-{{ "{% extends '::base.html.twig' %}" }}
+{{ "{% extends 'MvCrudGeneratorBundle::layout.html.twig' %}" }}
 
 {{ "{% trans_default_domain 'mvcrud' %}" }}
 
-{{ "{% block body -%}" }}
+{{ "{% block content -%}" }}
     <div class="admin-block">
         <h1>{{ "{{ '%entity% list'|trans({'%entity%':'" ~ entity ~ "'})|capitalize }}" }}</h1>
         <div class="admin-block-content">
@@ -30,7 +30,7 @@
 
                     {%- elseif metadata.type in ['date', 'datetime'] %}
 
-                        <td>{{ '{% if entity.' ~ field|replace({'_': ''}) ~ ' %}{{ entity.' ~ field|replace({'_': ''}) ~ '|date(\'Y-m-d H:i:s\') }}{% endif %}' }}</td>
+                        <td>{{ '{% if entity.' ~ field|replace({'_': ''}) ~ ' %}{{ entity.' ~ field|replace({'_': ''}) ~ '|date(\'d/m/Y H:i:s\') }}{% endif %}' }}</td>
 
                     {%- else %}
 
@@ -53,7 +53,7 @@
             </table>
 
             {% if 'new' in actions %}
-            <ul>
+            <ul class="list_actions">
                 <li>
                     <a href="{{ "{{ path('" ~ route_name_prefix ~ "_new') }}" }}">
                         {{ "{{ 'create a new entry'|trans|capitalize }}" }}

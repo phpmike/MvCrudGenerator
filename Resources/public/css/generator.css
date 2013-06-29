@@ -1,0 +1,106 @@
+div.admin-block{
+    -moz-border-radius: 7px;
+    border-radius: 7px;
+    border: 1px solid #F1E5CF;
+    margin: 10px;
+}
+div.admin-block-content{
+    padding: 10px 4px;
+}
+div.admin-block h1{
+    -moz-border-radius-topleft: 7px;
+    -moz-border-radius-topright: 7px;
+    border-top-left-radius:	7px;
+    border-top-right-radius:	7px;
+    border-bottom: #F1E5CF;
+    background-color: #E7E1CA;
+    padding: 6px 10px;
+    margin: 0;
+    font-size: 1.2em;
+    color: #47412A;
+    font-weight: bold;
+}
+div.admin-block table{
+    width: 100%;
+    border-collapse:collapse;
+    margin-bottom: 20px;
+}
+div.admin-block table tr th,
+div.admin-block table tr td{
+    padding: 10px 6px 4px 10px;
+}
+div.admin-block table tr{
+    border-bottom: 1px solid #F1E5CF;
+}
+div.admin-block table tr.even{
+    background-color: #F1E5CF;
+}
+ul.record_actions,
+ul.list_actions{
+    margin: 0;
+    padding: 0;
+}
+ul.record_actions li,
+ul.list_actions li{
+    display: inline-block;
+}
+ul.record_actions li a,
+ul.list_actions li a,
+a.button,
+button{
+    cursor: pointer;
+    display: inline-block;
+    -moz-border-radius: 7px;
+    border-radius: 7px;
+    border: 1px solid #156301;
+    background-color: #459301;
+    color: #fff;
+    padding: 0.1em 0.7em;
+    text-decoration: none;
+    font-size: 1em;
+}
+ul.record_actions li a:hover,
+ul.list_actions li a:hover,
+a.button:hover,
+button:hover{
+    background-color: #b5f371;
+    color: #156301;
+    text-decoration: none;
+}
+ul.record_actions li a.button-red,
+ul.actions li a.button-red,
+a.button.button-red,
+button.button-red{
+    border: 1px solid #631501;
+    background-color: #b30000;
+    color: #fff;
+}
+ul.record_actions li a.button-red:hover,
+ul.actions li a.button-red:hover,
+a.button.button-red:hover,
+button.button-red:hover{
+    background-color: #efaaaa;
+    color: #b30000;
+}
+
+/**********************************************/
+/* FORMS **************************************/
+/**********************************************/
+div.admin-block-content form label{
+    display: block;
+    color: #47412A;
+}
+div.admin-block-content form input,
+div.admin-block-content form select,
+div.admin-block-content form textarea{
+    -moz-border-radius: 7px;
+    border-radius: 7px;
+    border: 1px solid #F1E5CF;
+    margin: 2px 0 10px 0;
+    font-size: 1.1em;
+    padding: 3px 12px;
+}
+div.admin-block-content form input,
+div.admin-block-content form textarea{
+    width: 400px;
+}
