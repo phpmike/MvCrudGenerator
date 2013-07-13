@@ -14,7 +14,8 @@
     "require": {
         "php": ">=5.3.3",
         "symfony/symfony": ">=2.2.1",
-        "sensio/generator-bundle": ">=2.2@stable"
+        "sensio/generator-bundle": ">=2.2@stable",
+        "mv/mv-crud-generator-resources-bundle": "1.0.*"
     },
     "extra": {
         "branch-alias": {
