@@ -12,6 +12,7 @@
 namespace Mv\CrudGeneratorBundle\Command;
 
 use Sensio\Bundle\GeneratorBundle\Command\GenerateDoctrineCrudCommand AS SensioGenerateDoctrineCrudCommand;
+use Symfony\Component\HttpKernel\Bundle\BundleInterface;
 
 /**
  * Generates a CRUD for a Doctrine entity.
@@ -20,7 +21,7 @@ use Sensio\Bundle\GeneratorBundle\Command\GenerateDoctrineCrudCommand AS SensioG
  */
 class GenerateDoctrineCrudCommand extends SensioGenerateDoctrineCrudCommand
 {
-    protected function getSkeletonDirs($bundle = null)
+    protected function getSkeletonDirs(BundleInterface $bundle = null)
     {
         $skeletonDirs = array();
 
